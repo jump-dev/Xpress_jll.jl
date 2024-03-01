@@ -12,4 +12,6 @@ function __init__()
         RTLD_LAZY | RTLD_DEEPBIND,
     )
     JLLWrappers.@generate_init_footer()
+    # There's a permission error with the conda binaries
+    chmod(dirname(dirname(libxprs)), 0o755; recursive = true)
 end  # __init__()
