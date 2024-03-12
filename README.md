@@ -9,18 +9,54 @@
 by FICO Xpress. If you are a commercial customer interested in official support
 for Julia from FICO Xpress, let them know.
 
+## Installation
+
+Install `Xpress_jll` using `Pkg.add`:
+```julia
+import Pkg
+Pkg.add("Xpress_jll")
+```
+
+In addition to installing the `Xpress_jll.jl` package, this command will also
+download and install the Xpress binaries. You do not need to install Xpress
+separately.
+
 ## License
 
-`Xpress_jll.jl` is licensed under the [MIT License](https://github.com/odow/Xpress_jll.jl/blob/master/LICENSE.md).
+The Julia source code in `Xpress_jll.jl` is licensed under the
+[MIT License](https://github.com/odow/Xpress_jll.jl/blob/master/LICENSE.md).
+
+The Xpress artifacts that are automatically downloaded on install are governed
+by the [Xpress Shrinkwrap License Agreement](https://community.fico.com/s/contentdocument/06980000002h0i5AAA).
+When installing `Xpress_jll`, you accept the shrinkwrap license terms.
+
+A copy of the Xpress Shrinkwrap License is stored in the file `LICENSE.txt` in
+the dist-info directory of the installed artifact.
+
+Use `Xpress_jll.print_shinkwrap_license()` to display the contents:
+```julia
+julia> import Xpress_jll
+
+julia> Xpress_jll.print_shrinkwrap_license()
+Shrinkwrap License Agreement
+FICO(tm) Xpress Optimization Suite
+FICO(tm) Xpress Insight
+... lines omitted ...
+```
 
 The underlying solver is a closed-source commercial product for which you must
 [purchase a license](https://www.fico.com/products/fico-xpress-solver).
+
+`Xpress_jll.jl` includes the community license of Xpress, see the
+[licensing options overview](https://community.fico.com/s/fico-xpress-optimization-licensing-optio)
+for more details.
 
 ## Platforms
 
 `Xpress_jll.jl` is available for the following platforms:
 
 * `macOS x86_64` (`x86_64-apple-darwin`)
+* `macOS aarch64` (`aarch64-apple-darwin`)
 * `Linux x86_64` (`x86_64-linux-gnu`)
 * `Windows x86_64` (`x86_64-w64-mingw32`)
 
