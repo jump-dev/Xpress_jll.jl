@@ -20,4 +20,6 @@ function print_shrinkwrap_license(io = stdout)
     return
 end
 
+export print_shrinkwrap_license
+
 end  # module Xpress_jll
