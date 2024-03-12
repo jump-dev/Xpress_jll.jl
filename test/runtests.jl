@@ -21,3 +21,9 @@ end
         @test unsafe_string(p) == "42.01.05"
     end
 end
+
+@testset "print_shrinkwrap_license" begin
+    contents = sprint(print_shrinkwrap_license)
+    @test occursin("Shrinkwrap", contents)
+    @test length(contents) > 1_000
+end
