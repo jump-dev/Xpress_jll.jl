@@ -33,7 +33,7 @@ When installing `Xpress_jll`, you accept the shrinkwrap license terms.
 A copy of the Xpress Shrinkwrap License is stored in the file `LICENSE.txt` in
 the dist-info directory of the installed artifact.
 
-Use `Xpress_jll.print_shinkwrap_license()` to display the contents:
+Use `Xpress_jll.print_shrinkwrap_license()` to display the contents:
 ```julia
 julia> import Xpress_jll
 
