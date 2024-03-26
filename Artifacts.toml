@@ -1,32 +1,24 @@
 [[Xpress]]
-git-tree-sha1 = "a1d6175fd0ea403c941ee77bd30faa4186e82f9f"
+git-tree-sha1 = "d07eebd06799abe18219e02d0783c0695ec5407d"
 arch = "x86_64"
 os = "linux"
 
     [[Xpress.download]]
-    sha256 = "7c0cbbe6e92735792691076e0b07150daadab546e444b351028d830c2eaa4de7"
-    url = "https://anaconda.org/fico-xpress/xpress/9.3.0/download/linux-64/xpress-9.3.0-py311hd54f6e1_0.tar.bz2"
+    sha256 = "60fbd7fe29ce4ca8b5ca06bd69b9c3b2c3115baaba772dcfcd656ccfff580f8b"
+    url = "https://anaconda.org/fico-xpress/xpress/8.13.4/download/linux-64/xpress-8.13.4-py39_0.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "774de63a916ea5fd67039a2fece27ee71ab32655"
+git-tree-sha1 = "f5db92393b6336df0f787b592d83f5978ebe98a2"
 arch = "x86_64"
 os = "macos"
 
     [[Xpress.download]]
-    sha256 = "375d512b2afa7827c1b182b213849be7e3bebcdeaede1e5f44fe267224a7c91c"
-    url = "https://anaconda.org/fico-xpress/xpress/9.3.0/download/osx-64/xpress-9.3.0-py311hd5f4a35_0.tar.bz2"
+    sha256 = "e104793d4860bbfcabd1695a45e40ae49647943d4cc6444ddecdd5207a8fe4bf"
+    url = "https://anaconda.org/fico-xpress/xpress/8.13.4/download/osx-64/xpress-8.13.4-py39_0.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "a7a59752361a61637bec9cc3b8b9c4982d5c5435"
-arch = "aarch64"
-os = "macos"
-
-    [[Xpress.download]]
-    sha256 = "e3476bb2af40383ae6ba6b28d3bb4e600f2515a277987a1916fe3c808ef7ff73"
-    url = "https://anaconda.org/fico-xpress/xpress/9.3.0/download/osx-arm64/xpress-9.3.0-py311hb8ed652_0.tar.bz2"
-[[Xpress]]
-git-tree-sha1 = "ab769b82e0cbe357520457da865d95652421b1bd"
+git-tree-sha1 = "6179c51500d1c7b5ce3bd7105fc810265504423c"
 arch = "x86_64"
 os = "windows"
 
     [[Xpress.download]]
-    sha256 = "0f8a2a46bda0337d2552dbc913509c3bb83076992818da2b42b721377e015b3a"
-    url = "https://anaconda.org/fico-xpress/xpress/9.3.0/download/win-64/xpress-9.3.0-py311hb01d3b7_0.tar.bz2"
+    sha256 = "cf43d08104659505120734b29aeff6b7ff46aac28cb6345f79de8817c9a033cd"
+    url = "https://anaconda.org/fico-xpress/xpress/8.13.4/download/win-64/xpress-8.13.4-py39_0.tar.bz2"
