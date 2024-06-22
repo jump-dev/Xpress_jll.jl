@@ -8,7 +8,7 @@ function __init__()
     JLLWrappers.@generate_init_header()
     JLLWrappers.@init_library_product(
         libxprs,
-        "/lib/libxprs.dylib",
+        "lib/libxprs.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
     JLLWrappers.@generate_init_footer()
