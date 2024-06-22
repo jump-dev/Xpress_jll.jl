@@ -8,7 +8,7 @@ function __init__()
     JLLWrappers.@generate_init_header()
     JLLWrappers.@init_library_product(
         libxprs,
-        "lib/python3.11/site-packages/xpress/lib/libxprs.so.43",
+        "lib/libxprs.so.43",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
     JLLWrappers.@generate_init_footer()
