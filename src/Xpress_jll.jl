@@ -15,7 +15,11 @@ Print the Shrinkwrap License Agreement that governs the usage of the Xpress
 artifacts.
 """
 function print_shrinkwrap_license(io = stdout)
-    license = joinpath(artifact_dir, "info", "LICENSE.txt")
+    license = if Sys.islinux()
+        joinpath(artifact_dir, "info", "licenses", "LICENSE.txt")
+    else
+        joinpath(artifact_dir, "info", "LICENSE.txt")
+    end
     print(io, read(license, String))
     return
 end
