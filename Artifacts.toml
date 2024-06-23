@@ -1,24 +1,24 @@
 [[Xpress]]
-git-tree-sha1 = "d07eebd06799abe18219e02d0783c0695ec5407d"
+git-tree-sha1 = "c66ac2630a470ed8fd6c46134e00800c3005d47a"
 arch = "x86_64"
 os = "linux"
 
     [[Xpress.download]]
-    sha256 = "60fbd7fe29ce4ca8b5ca06bd69b9c3b2c3115baaba772dcfcd656ccfff580f8b"
-    url = "https://anaconda.org/fico-xpress/xpress/8.13.4/download/linux-64/xpress-8.13.4-py39_0.tar.bz2"
+    sha256 = "2554bd3723542078c6e333d4eca043e221ff2f4c68f79a25648a31a56b2dc85f"
+    url = "https://anaconda.org/fico-xpress/xpress/8.14.0/download/linux-64/xpress-8.14.0-py39_0.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "f5db92393b6336df0f787b592d83f5978ebe98a2"
+git-tree-sha1 = "fcab3a2a776608ee9f58177b34d75d9d723c4be4"
 arch = "x86_64"
 os = "macos"
 
     [[Xpress.download]]
-    sha256 = "e104793d4860bbfcabd1695a45e40ae49647943d4cc6444ddecdd5207a8fe4bf"
-    url = "https://anaconda.org/fico-xpress/xpress/8.13.4/download/osx-64/xpress-8.13.4-py39_0.tar.bz2"
+    sha256 = "2c7198b7ef697030b3731e52d459524798bf90b1a29cc089127b2a011fcb86cb"
+    url = "https://anaconda.org/fico-xpress/xpress/8.14.0/download/osx-64/xpress-8.14.0-py39_0.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "6179c51500d1c7b5ce3bd7105fc810265504423c"
+git-tree-sha1 = "94967738505737fd4a008552cdfd4529332b266f"
 arch = "x86_64"
 os = "windows"
 
     [[Xpress.download]]
-    sha256 = "cf43d08104659505120734b29aeff6b7ff46aac28cb6345f79de8817c9a033cd"
-    url = "https://anaconda.org/fico-xpress/xpress/8.13.4/download/win-64/xpress-8.13.4-py39_0.tar.bz2"
+    sha256 = "8c10027dd6e770822e346679a9f515937b190dfc5106a62c42442cea07ec9045"
+    url = "https://anaconda.org/fico-xpress/xpress/8.14.0/download/win-64/xpress-8.14.0-py39_0.tar.bz2"
