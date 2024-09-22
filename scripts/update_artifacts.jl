@@ -21,13 +21,13 @@ function get_artifact(data; version::String)
     return ret
 end
 
-function main(; version = "9.4.1")
+function main(; version)
     platforms = [
-        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "ha4362f7_1716201091"),
-        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "he969ceb_1716204914"),
-        (os = "macos", arch = "x86_64", conda = "osx-64", pyversion = "h24e2b0f_1716215669"),
-        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "hce214f3_1716198001"),
-        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "hccc4542_1716201567"),
+        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "he3cf0cc_1722986213"),
+        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "h6fbf9b4_1722996190"),
+        (os = "macos", arch = "x86_64", conda = "osx-64", pyversion = "h7005a19_1722991681"),
+        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "h86f0ee4_1722990938"),
+        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "ha292f0b_1722978307"),
     ]
     output = Dict("Xpress" => get_artifact.(platforms; version))
     open(joinpath(dirname(@__DIR__), "Artifacts.toml"), "w") do io
