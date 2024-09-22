@@ -1,40 +1,40 @@
 [[Xpress]]
-git-tree-sha1 = "66559bdb1036af9f67554c4989f1d1905b7b09ef"
+git-tree-sha1 = "cbe4259eae614b69160803b919107304ff5aa88e"
 arch = "aarch64"
 os = "linux"
 
     [[Xpress.download]]
-    sha256 = "186079bdf9dbc646c2898598cbd8eaf1b0f86738d841d314bf2b0b06119e05b7"
-    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.1/download/linux-aarch64/xpresslibs-9.4.1-ha4362f7_1716201091.tar.bz2"
+    sha256 = "fa2dc279b8824a8428535155b9c3f513c184b68fc046f8006669f699e50705d5"
+    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.3/download/linux-aarch64/xpresslibs-9.4.3-he3cf0cc_1722986213.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "9f2771f5cf2dddba8661cae7c4a2f6ea5d8e633b"
+git-tree-sha1 = "1be7359a4eb4612f16128aaf0d419faa54991346"
 arch = "x86_64"
 os = "linux"
 
     [[Xpress.download]]
-    sha256 = "fb4741b9f060574befc30c106da987c2e1ec3c027c94b7d9be1926c5bb38d04e"
-    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.1/download/linux-64/xpresslibs-9.4.1-he969ceb_1716204914.tar.bz2"
+    sha256 = "436ab7e0c824aebf7d8e0c99c7832280394cda895a0ecfcd684170e52743a557"
+    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.3/download/linux-64/xpresslibs-9.4.3-h6fbf9b4_1722996190.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "46d4e051ac58f6424172f9d465f8e07fdc934828"
+git-tree-sha1 = "2571ba93b8d26bc9f81f339fa01bcf482047ed21"
 arch = "x86_64"
 os = "macos"
 
     [[Xpress.download]]
-    sha256 = "e8f05dc1d30653d580e98f6818e2eda2ca21bb69f91cd0e3702edcf15226c9ed"
-    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.1/download/osx-64/xpresslibs-9.4.1-h24e2b0f_1716215669.tar.bz2"
+    sha256 = "803af00aa3ae622ad876c6da23533e1c3abb914a36bb0b7adf4185d25058a6f0"
+    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.3/download/osx-64/xpresslibs-9.4.3-h7005a19_1722991681.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "1c20a7e68a361d6d2caa9ce4a588de8cd77316bc"
+git-tree-sha1 = "95eef1cab34a47926cd84f0f9150cba131cadc2a"
 arch = "aarch64"
 os = "macos"
 
     [[Xpress.download]]
-    sha256 = "5169834be43384b5d2d1ef856c2b2043617fc80f4391ed2840c88c4ac2109442"
-    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.1/download/osx-arm64/xpresslibs-9.4.1-hce214f3_1716198001.tar.bz2"
+    sha256 = "f780f964af688f57b9decb783d9f5f371127096d51fbb266bbcab5c5fac6db03"
+    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.3/download/osx-arm64/xpresslibs-9.4.3-h86f0ee4_1722990938.tar.bz2"
 [[Xpress]]
-git-tree-sha1 = "6a80184f96d5513048bb4e587e787602559f51aa"
+git-tree-sha1 = "cbe391c6322aefda04b2bff7c1c83f9c74f0095e"
 arch = "x86_64"
 os = "windows"
 
     [[Xpress.download]]
-    sha256 = "2a0b6129f64e220adbd8c42b497dcaff0e701bec89495a16a9a936ea272b24cd"
-    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.1/download/win-64/xpresslibs-9.4.1-hccc4542_1716201567.tar.bz2"
+    sha256 = "9b6a8f6668fa4e403c540e2189b1b96d99459496c34477f50315900914d87093"
+    url = "https://anaconda.org/fico-xpress/xpresslibs/9.4.3/download/win-64/xpresslibs-9.4.3-ha292f0b_1722978307.tar.bz2"

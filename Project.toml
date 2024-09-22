@@ -1,7 +1,7 @@
 name = "Xpress_jll"
 uuid = "308bddfa-7f95-4fa6-a557-f2c7addc1869"
 authors = ["odow <o.dowson@gmail.com>"]
-version = "9.4.1"
+version = "9.4.3"
 
 [deps]
 Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
