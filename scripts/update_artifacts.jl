@@ -23,11 +23,11 @@ end
 
 function main(; version)
     platforms = [
-        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "1753802980"),
-        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "1753802730"),
-        (os = "macos", arch = "x86_64", conda = "osx-64", pyversion = "1753806094"),
-        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "1753803500"),
-        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "1753804251"),
+        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "1761088616"),
+        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "1761089859"),
+        (os = "macos", arch = "x86_64", conda = "osx-64", pyversion = "1761089481"),
+        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "1761089324"),
+        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "1761090797"),
     ]
     output = Dict("Xpress" => get_artifact.(platforms; version))
     open(joinpath(dirname(@__DIR__), "Artifacts.toml"), "w") do io
