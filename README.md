@@ -47,7 +47,7 @@ FICO(tm) Xpress Insight
 The underlying solver is a closed-source commercial product for which you must
 [purchase a license](https://www.fico.com/products/fico-xpress-solver).
 
-`Xpress_jll.jl` includes the community license of Xpress, see the
+See the
 [licensing options overview](https://community.fico.com/s/fico-xpress-optimization-licensing-optio)
 for more details.
 
