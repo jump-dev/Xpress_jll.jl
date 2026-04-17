@@ -23,11 +23,11 @@ end
 
 function main(; version)
     platforms = [
-        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "1761088616"),
-        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "1761089859"),
-        (os = "macos", arch = "x86_64", conda = "osx-64", pyversion = "1761089481"),
-        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "1761089324"),
-        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "1761090797"),
+        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "1771425923"),
+        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "1771425194"),
+        (os = "macos", arch = "x86_64", conda = "osx-64", pyversion = "1771424591"),
+        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "1771423794"),
+        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "1771428111"),
     ]
     output = Dict("Xpress" => get_artifact.(platforms; version))
     open(joinpath(dirname(@__DIR__), "Artifacts.toml"), "w") do io
@@ -36,9 +36,7 @@ function main(; version)
     return
 end
 
-#   julia --project=scripts scripts/update_artifacts.jl version`
+#   julia --project=scripts scripts/update_artifacts.jl`
 #
 # Update the Artifacts.toml file.
-if !isempty(ARGS)
-    main(; version = ARGS[1])
-end
+main(; version = "9.8.1")
