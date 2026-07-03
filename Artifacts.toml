@@ -3,16 +3,32 @@ arch = "aarch64"
 git-tree-sha1 = "841971e62d073806625f32735389546a31d38c3f"
 libc = "glibc"
 os = "linux"
+
+    [[Xpress.download]]
+    sha256 = "1c798f4d5f1c8fcf331fde507cc8f4177b389332e213c8a3d536db310d4545ad"
+    url = "https://files.pythonhosted.org/packages/97/97/89acaf01bc8605fca3905cb1e8f8b8b33783ff043c94850febbc033ae570/xpresslibs-9.9.0-py3-none-manylinux2014_aarch64.whl"
 [[Xpress]]
 arch = "x86_64"
 git-tree-sha1 = "b3af19bad2dc2ca862e2f0f27193c4c35971d89e"
 libc = "glibc"
 os = "linux"
+
+    [[Xpress.download]]
+    sha256 = "04a70002c9c2d290ff80679db4a5296bb69a74d073caf8de1ebe12fe728c599a"
+    url = "https://files.pythonhosted.org/packages/e7/9c/9f91ad977bf8b35676d73032764d22f8a93720489ee7e075e364d7276f3a/xpresslibs-9.9.0-py3-none-manylinux1_x86_64.whl"
 [[Xpress]]
 arch = "aarch64"
 git-tree-sha1 = "d2076148961917d412adad282f842e8b000e5c60"
 os = "macos"
+
+    [[Xpress.download]]
+    sha256 = "c94d747e143660bb303d67996e60646d82d1c9842f6600ac562cb187b99cf2d4"
+    url = "https://files.pythonhosted.org/packages/d2/df/cfc92da6a4bad008921ce9fd9c3c2cffe7cb07abeabdd84e3a582e330432/xpresslibs-9.9.0-py3-none-macosx_14_0_arm64.whl"
 [[Xpress]]
 arch = "x86_64"
 git-tree-sha1 = "753efdbdfc30acd0418ad18720bc148fe46df059"
 os = "windows"
+
+    [[Xpress.download]]
+    sha256 = "a6a27522595757387cd3a1964830e1ad4889cfcd5bde0bf16fd5978e72a714c3"
+    url = "https://files.pythonhosted.org/packages/23/0d/d28058a9e66c30e41aee08491f809b0b4388438c9fff87c94716f1ca89e6/xpresslibs-9.9.0-py3-none-win_amd64.whl"

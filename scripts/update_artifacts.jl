@@ -118,6 +118,7 @@ function write_wrapper(data, libname::String, wrappers_dir::String)
         println(io, "JLLWrappers.@declare_library_product(libxprs, \"$soname\")")
         println(io)
         println(io, "function __init__()")
+        println(io, "    _once()  # ensure artifact is installed before JLLWrappers accesses it")
         println(io, "    JLLWrappers.@generate_init_header()")
         if data.os == "windows"
             println(io, "    # There's a permission error with the conda binaries")
@@ -141,7 +142,9 @@ end
 
 Download the wheel for `data.os`/`data.arch`, extract it, detect the actual
 libxprs filename, update the wrapper source file, create a local artifact via
-`ArtifactUtils.artifact_from_directory`, and bind it in `artifacts_toml`.
+`ArtifactUtils.artifact_from_directory`, and bind it in `artifacts_toml` with
+the wheel URL as a download source so end-users get the artifact automatically
+via `Pkg.instantiate()` without needing to run this script.
 """
 function install_artifact(data, pypi_urls::Dict, artifacts_toml::String, wrappers_dir::String)
     wheel_info = find_wheel(data.os, data.arch, pypi_urls)
@@ -161,9 +164,10 @@ function install_artifact(data, pypi_urls::Dict, artifacts_toml::String, wrapper
         artifacts_toml,
         "Xpress",
         artifact_id;
-        platform = julia_platform(data),
-        force    = true,
-        lazy     = false,
+        platform      = julia_platform(data),
+        download_info = [(wheel_info.url, wheel_info.sha256)],
+        force         = true,
+        lazy          = false,
     )
     return
 end

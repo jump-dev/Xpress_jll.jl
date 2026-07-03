@@ -5,6 +5,7 @@ JLLWrappers.@generate_wrapper_header("Xpress")
 JLLWrappers.@declare_library_product(libxprs, "@rpath/libxprs.dylib")
 
 function __init__()
+    _once()  # ensure artifact is installed before JLLWrappers accesses it
     JLLWrappers.@generate_init_header()
     JLLWrappers.@init_library_product(
         libxprs,
