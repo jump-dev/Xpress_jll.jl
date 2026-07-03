@@ -1,7 +1,7 @@
 # `Xpress_jll.jl`
 
 `Xpress_jll` is a JLL package manually built from the binaries at
-[https://anaconda.org/fico-xpress/xpress/files](https://anaconda.org/fico-xpress/xpress/files).
+[https://pypi.org/project/xpresslibs/](https://pypi.org/project/xpresslibs/).
 
 ## Affiliation
 

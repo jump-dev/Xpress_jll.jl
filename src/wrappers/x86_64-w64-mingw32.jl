@@ -12,7 +12,7 @@ function __init__()
     end
     JLLWrappers.@init_library_product(
         libxprs,
-        "Library\\bin\\xprs.dll",
+        "xpresslibs\bin\xprs.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
     JLLWrappers.@generate_init_footer()
