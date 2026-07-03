@@ -11,11 +11,10 @@ import JLLWrappers
 # ---------------------------------------------------------------------------
 # One-time artifact installer.
 #
-# On first import, _once() downloads the platform-specific Xpress wheel from
-# PyPI, extracts it with 7-Zip, and registers the result as a Julia artifact
-# in the local depot.  Subsequent imports return immediately because
-# Base.OncePerProcess guarantees the block runs at most once per Julia process,
-# and the fast artifact_exists() check short-circuits after the first run.
+# Called at the start of every wrapper's __init__. Downloads the platform-
+# specific Xpress wheel from PyPI, extracts it with 7-Zip, and registers the
+# result as a Julia artifact in the local depot.  Subsequent calls return
+# immediately because artifact_exists() short-circuits once the depot has it.
 # ---------------------------------------------------------------------------
 function _ensure_artifact_installed()
     artifacts_toml = joinpath(@__DIR__, "..", "Artifacts.toml")
@@ -57,11 +56,6 @@ function _ensure_artifact_installed()
     )
     @info "Xpress_jll: artifact installed successfully."
     return
-end
-
-const _once = Base.OncePerProcess{Nothing}() do
-    _ensure_artifact_installed()
-    nothing
 end
 
 JLLWrappers.@generate_main_file_header("Xpress")

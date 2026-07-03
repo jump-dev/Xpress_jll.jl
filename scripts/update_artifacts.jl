@@ -118,7 +118,7 @@ function write_wrapper(data, libname::String, wrappers_dir::String)
         println(io, "JLLWrappers.@declare_library_product(libxprs, \"$soname\")")
         println(io)
         println(io, "function __init__()")
-        println(io, "    _once()  # ensure artifact is installed before JLLWrappers accesses it")
+        println(io, "    _ensure_artifact_installed()")
         println(io, "    JLLWrappers.@generate_init_header()")
         if data.os == "windows"
             println(io, "    # There's a permission error with the conda binaries")

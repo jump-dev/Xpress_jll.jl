@@ -5,7 +5,7 @@ JLLWrappers.@generate_wrapper_header("Xpress")
 JLLWrappers.@declare_library_product(libxprs, "xprs.dll")
 
 function __init__()
-    _once()  # ensure artifact is installed before JLLWrappers accesses it
+    _ensure_artifact_installed()
     JLLWrappers.@generate_init_header()
     # There's a permission error with the conda binaries
     if (stat(artifact_dir).mode & 0o777) != 0o755
