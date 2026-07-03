@@ -160,17 +160,6 @@ function install_artifact(data, pypi_urls::Dict, artifacts_toml::String, wrapper
     tmp = Downloads.download(wheel_info.url)
     artifact_id = mktempdir() do dir
         run(pipeline(`$(p7zip_jll.p7zip_path) x -y $tmp -o$dir`; stdout=devnull, stderr=devnull))
-        # Normalize: strip execute bits from all regular files so git-tree-sha1
-        # matches what Julia's gitmode() returns on Windows (always 0o100644).
-        # p7zip on Linux gives .so/.dylib files 0o100755, producing a different
-        # tree hash than Windows 7z which always uses 0o100644.
-        for (root, _, files) in walkdir(dir)
-            for f in files
-                p = joinpath(root, f)
-                m = filemode(p)
-                m & 0o111 != 0 && chmod(p, m & ~0o111)
-            end
-        end
         libname = find_libxprs_name(dir, data.os)
         write_wrapper(data, libname, wrappers_dir)
         artifact_from_directory(dir)
