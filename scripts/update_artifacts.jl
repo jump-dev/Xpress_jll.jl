@@ -154,7 +154,7 @@ function install_artifact(data, pypi_urls::Dict, artifacts_toml::String, wrapper
     end
     tmp = Downloads.download(wheel_info.url)
     artifact_id = mktempdir() do dir
-        run(`$(p7zip_jll.p7zip_path) x -y $tmp -o$dir`)
+        run(pipeline(`$(p7zip_jll.p7zip_path) x -y $tmp -o$dir`; stdout=devnull, stderr=devnull))
         libname = find_libxprs_name(dir, data.os)
         write_wrapper(data, libname, wrappers_dir)
         artifact_from_directory(dir)

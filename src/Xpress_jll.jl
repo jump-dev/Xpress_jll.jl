@@ -44,7 +44,7 @@ function _ensure_artifact_installed()
 
     exe7z    = Pkg.PlatformEngines.exe7z()
     actual_id = Pkg.Artifacts.create_artifact() do dir
-        run(`$exe7z x -y $wheel -o$dir`)
+        run(pipeline(`$exe7z x -y $wheel -o$dir`; stdout=devnull, stderr=devnull))
     end
     rm(wheel)
 
