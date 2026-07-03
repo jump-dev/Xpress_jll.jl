@@ -99,22 +99,29 @@ function _ensure_artifact_installed()
     actual_sha256 == sha256 ||
         error("Xpress: SHA-256 mismatch for $url\n  expected: $sha256\n  got: $actual_sha256")
 
-    exe7z     = Pkg.PlatformEngines.exe7z()
-    log_file  = tempname(; cleanup = false)
-    actual_id = Pkg.Artifacts.create_artifact() do dir
+    # Extract directly into the expected artifact path rather than using
+    # create_artifact(), which recomputes git-tree-sha1 on the user's OS.
+    # The hash differs between Linux (where update_artifacts.jl runs) and
+    # Windows because p7zip and 7z assign different directory structures and
+    # file modes for the same ZIP.  The wheel SHA256 check above already
+    # guarantees download integrity; the git-tree-sha1 is used only as an
+    # opaque depot key to locate the artifact on disk.
+    exe7z          = Pkg.PlatformEngines.exe7z()
+    artifact_store = Pkg.Artifacts.artifact_path(expected)
+    mkpath(artifact_store)
+    log_file = tempname(; cleanup = false)
+    try
         open(log_file, "w") do log_io
-            run(pipeline(`$exe7z x -y $wheel -o$dir`; stdout = log_io, stderr = log_io))
+            run(pipeline(`$exe7z x -y $wheel -o$artifact_store`; stdout = log_io, stderr = log_io))
         end
+    catch e
+        rm(artifact_store; force = true, recursive = true)
+        rm(log_file; force = true)
+        rm(wheel; force = true)
+        rethrow()
     end
     rm(log_file; force = true)
     rm(wheel; force = true)
-
-    actual_id == expected || error(
-        "Xpress: git-tree-sha1 mismatch after extracting wheel.\n" *
-        "  expected: $(bytes2hex(expected.bytes))\n" *
-        "  got:      $(bytes2hex(actual_id.bytes))\n" *
-        "Run `julia --project=scripts scripts/update_artifacts.jl` to regenerate Artifacts.toml.",
-    )
     @info "Xpress_jll: artifact installed successfully."
     return
 end

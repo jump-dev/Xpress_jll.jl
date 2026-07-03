@@ -1,6 +1,6 @@
 [[Xpress]]
 arch = "aarch64"
-git-tree-sha1 = "841971e62d073806625f32735389546a31d38c3f"
+git-tree-sha1 = "95259aef711aa9952f0b9cb857f722df375f2f8c"
 libc = "glibc"
 os = "linux"
 
@@ -9,7 +9,7 @@ os = "linux"
     url = "https://files.pythonhosted.org/packages/97/97/89acaf01bc8605fca3905cb1e8f8b8b33783ff043c94850febbc033ae570/xpresslibs-9.9.0-py3-none-manylinux2014_aarch64.whl"
 [[Xpress]]
 arch = "x86_64"
-git-tree-sha1 = "b3af19bad2dc2ca862e2f0f27193c4c35971d89e"
+git-tree-sha1 = "efc2d9ba2dc5a83196a3da978e683a9b72fa5593"
 libc = "glibc"
 os = "linux"
 
@@ -18,7 +18,7 @@ os = "linux"
     url = "https://files.pythonhosted.org/packages/e7/9c/9f91ad977bf8b35676d73032764d22f8a93720489ee7e075e364d7276f3a/xpresslibs-9.9.0-py3-none-manylinux1_x86_64.whl"
 [[Xpress]]
 arch = "aarch64"
-git-tree-sha1 = "d2076148961917d412adad282f842e8b000e5c60"
+git-tree-sha1 = "c4bc4caa23ff37fbea51011b80295b51604f7339"
 os = "macos"
 
     [[Xpress.wheel]]
