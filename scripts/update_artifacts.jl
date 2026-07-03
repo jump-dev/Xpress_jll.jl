@@ -106,7 +106,7 @@ the discovered `libname` so that no version number is hardcoded.
 """
 function write_wrapper(data, libname::String, wrappers_dir::String)
     path = joinpath(wrappers_dir, wrapper_filename(data))
-    libpath = data.os == "windows" ? "xpresslibs\\bin\\$libname" :
+    libpath = data.os == "windows" ? "xpresslibs/bin/$libname" :
                                      "xpresslibs/lib/$libname"
     soname  = data.os == "macos"   ? "@rpath/$libname" : libname
 
