@@ -188,6 +188,12 @@ function main(; version)
     for data in platforms
         install_artifact(data, pypi_urls, artifacts_toml, wrappers_dir)
     end
+    # Rename [[Xpress.download]] → [[Xpress.wheel]] so that Pkg's standard
+    # artifact installer does not attempt to fetch and unpack the .whl as a
+    # .tar.gz (which would fail).  Our _ensure_artifact_installed() __init__
+    # reads from the "wheel" key instead.
+    content = read(artifacts_toml, String)
+    write(artifacts_toml, replace(content, "[[Xpress.download]]" => "[[Xpress.wheel]]"))
     return
 end
 

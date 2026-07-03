@@ -82,9 +82,9 @@ function _ensure_artifact_installed()
     expected = Base.SHA1(meta["git-tree-sha1"])
     Pkg.Artifacts.artifact_exists(expected) && return  # already in depot
 
-    dl = Base.get(meta, "download", [])
+    dl = Base.get(meta, "wheel", [])
     isempty(dl) && error(
-        "Xpress: no download sources found in Artifacts.toml. " *
+        "Xpress: no wheel download sources found in Artifacts.toml. " *
         "Run `julia --project=scripts scripts/update_artifacts.jl` to regenerate.",
     )
     url    = dl[1]["url"]
