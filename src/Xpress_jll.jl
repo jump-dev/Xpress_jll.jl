@@ -9,6 +9,63 @@ import SHA
 import JLLWrappers
 
 # ---------------------------------------------------------------------------
+# Resumable download helper.
+#
+# The Xpress wheel is several hundred MiB.  On Windows, WinHTTP / Schannel
+# translates a mid-transfer TCP RST into ERROR_BROKEN_PIPE (232), so a single
+# Downloads.download() call is unreliable on slow or flaky connections.
+#
+# _download_with_resume() persists the partial file in the Julia depot across
+# Julia restarts and resumes via HTTP Range requests (PyPI's CDN supports
+# them). On each call it tries up to MAX_RETRIES times. If the server does
+# not honour the Range header it falls back to a fresh full download.
+# ---------------------------------------------------------------------------
+const _MAX_RETRIES = 5
+
+_wheel_cache_dir() = joinpath(first(Base.DEPOT_PATH), "xpress_jll_cache")
+
+# Download with retries; persists the partial file across Julia restarts in the
+# depot cache so repeated failures don't restart from zero.
+function _download_with_resume(url, dest)
+    mkpath(dirname(dest))
+    for attempt in 1:_MAX_RETRIES
+        partial = isfile(dest) ? stat(dest).size : Int64(0)
+        try
+            if partial > 0
+                @info "Xpress_jll: resuming download from $(round(partial / 1024^2, digits=1)) MiB…"
+                remaining = dest * ".part"
+                resp = Downloads.request(url;
+                    output  = remaining,
+                    headers = ["Range" => "bytes=$partial-"],
+                    timeout = 600.0,
+                )
+                if resp.status == 206
+                    open(dest, "a") do out
+                        open(remaining, "r") do inp; write(out, inp) end
+                    end
+                    rm(remaining; force = true)
+                else
+                    mv(remaining, dest; force = true)
+                end
+            else
+                Downloads.download(url, dest; timeout = 600.0)
+            end
+            return
+        catch e
+            isfile(dest * ".part") && rm(dest * ".part"; force = true)
+            if attempt == _MAX_RETRIES
+                rm(dest; force = true)
+                error(
+                    "Xpress_jll: download failed after $_MAX_RETRIES attempts.\n" *
+                    "  URL: $url\n  Last error: $e",
+                )
+            end
+            @warn "Xpress_jll: download attempt $attempt/$_MAX_RETRIES failed: $e. Retrying…"
+        end
+    end
+end
+
+# ---------------------------------------------------------------------------
 # One-time artifact installer.
 #
 # Called at the start of every wrapper's __init__. Downloads the platform-
@@ -33,8 +90,8 @@ function _ensure_artifact_installed()
     url    = dl[1]["url"]
     sha256 = dl[1]["sha256"]
 
-    @info "Xpress_jll: downloading wheel from PyPI…"
-    wheel = Downloads.download(url)
+    wheel = joinpath(_wheel_cache_dir(), split(url, "/")[end])
+    _download_with_resume(url, wheel)
 
     actual_sha256 = open(wheel, "r") do io
         bytes2hex(SHA.sha256(io))
@@ -42,11 +99,15 @@ function _ensure_artifact_installed()
     actual_sha256 == sha256 ||
         error("Xpress: SHA-256 mismatch for $url\n  expected: $sha256\n  got: $actual_sha256")
 
-    exe7z    = Pkg.PlatformEngines.exe7z()
+    exe7z     = Pkg.PlatformEngines.exe7z()
+    log_file  = tempname(; cleanup = false)
     actual_id = Pkg.Artifacts.create_artifact() do dir
-        run(pipeline(`$exe7z x -y $wheel -o$dir`; stdout=devnull, stderr=devnull))
+        open(log_file, "w") do log_io
+            run(pipeline(`$exe7z x -y $wheel -o$dir`; stdout = log_io, stderr = log_io))
+        end
     end
-    rm(wheel)
+    rm(log_file; force = true)
+    rm(wheel; force = true)
 
     actual_id == expected || error(
         "Xpress: git-tree-sha1 mismatch after extracting wheel.\n" *
