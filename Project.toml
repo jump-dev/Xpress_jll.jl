@@ -1,7 +1,7 @@
 name = "Xpress_jll"
 uuid = "308bddfa-7f95-4fa6-a557-f2c7addc1869"
 authors = ["odow <o.dowson@gmail.com>"]
-version = "9.8.1"
+version = "9.9.1"
 
 [deps]
 Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
@@ -10,10 +10,10 @@ Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 
 [compat]
 Artifacts = "1"
-JLLWrappers = "1.2.0"
-Libdl = "<0.0.1, 1"
-Test = "<0.0.1, 1"
-julia = "1.6"
+JLLWrappers = "1.2"
+Libdl = "1"
+Test = "1"
+julia = "1.10"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
