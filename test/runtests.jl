@@ -18,7 +18,7 @@ end
         p = pointer(buffer)
         r = @ccall libxprs.XPRSgetversion(p::Ptr{Cchar})::Cint
         @test r == 0
-        @test unsafe_string(p) == "46.01.02"
+        @test unsafe_string(p) == "47.01.02"
     end
 end
 

@@ -55,7 +55,6 @@ for more details.
 
 `Xpress_jll.jl` is available for the following platforms:
 
-* `macOS x86_64` (`x86_64-apple-darwin`)
 * `macOS aarch64` (`aarch64-apple-darwin`)
 * `Linux x86_64` (`x86_64-linux-gnu`)
 * `Linux aarch64` (`aarch64-linux-gnu`)
