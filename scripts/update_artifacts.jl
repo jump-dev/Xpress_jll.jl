@@ -3,14 +3,15 @@
 # Use of this source code is governed by an MIT-style license that can be found
 # in the LICENSE.md file or at https://opensource.org/licenses/MIT.
 
-using Tar, Inflate, SHA, TOML
+using Tar, SHA, TOML
 
 function get_artifact(data; version::String)
-    filename = "xpresslibs-$version-$(data.pyversion).tar.bz2"
-    url = "https://api.anaconda.org/download/fico-xpress/xpresslibs/$version/$(data.conda)/$filename"
-    run(`wget $url`)
+    filename = "xp$version" * "_$(data.asset).tar.gz"
+    url = "https://github.com/fico-xpress/releases/releases/download/v$version/$filename"
+    run(`wget -q -O $filename $url`)
+    tree_hash = Tar.tree_hash(`gzip -dc $filename`; skip_empty = true)
     ret = Dict(
-        "git-tree-sha1" => Tar.tree_hash(`gzcat $filename`),
+        "git-tree-sha1" => tree_hash,
         "arch" => data.arch,
         "os" => data.os,
         "download" => Any[
@@ -21,12 +22,14 @@ function get_artifact(data; version::String)
     return ret
 end
 
+# The Windows release is only published as a .zip, which Pkg cannot download as
+# an artifact, so it is not included here. Instead, it is downloaded when the
+# package is loaded. See `src/wrappers/x86_64-w64-mingw32.jl`.
 function main(; version)
     platforms = [
-        (os = "linux", arch = "aarch64", conda = "linux-aarch64", pyversion = "1782942423"),
-        (os = "linux", arch = "x86_64", conda = "linux-64", pyversion = "1782941600"),
-        (os = "macos", arch = "aarch64", conda = "osx-arm64", pyversion = "1782943702"),
-        (os = "windows", arch = "x86_64", conda = "win-64", pyversion = "1782952299"),
+        (os = "linux", arch = "aarch64", asset = "linux_aarch64"),
+        (os = "linux", arch = "x86_64", asset = "linux_x86_64"),
+        (os = "macos", arch = "aarch64", asset = "macos_arm64"),
     ]
     output = Dict("Xpress" => get_artifact.(platforms; version))
     open(joinpath(dirname(@__DIR__), "Artifacts.toml"), "w") do io
@@ -38,4 +41,4 @@ end
 #   julia --project=scripts scripts/update_artifacts.jl`
 #
 # Update the Artifacts.toml file.
-main(; version = "9.9.1")
+main(; version = "10.0.0")

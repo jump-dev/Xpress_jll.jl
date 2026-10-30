@@ -1,32 +1,24 @@
 [[Xpress]]
-git-tree-sha1 = "35e3d9f537d687aae85354abbe1473de783f3028"
 arch = "aarch64"
 os = "linux"
+git-tree-sha1 = "d676ad1892ce458cb6af4e2ee879a9b3f988377e"
 
     [[Xpress.download]]
-    sha256 = "020152831857135d3a1ecf885dee0f4ab8993015dcb2e8a12a5b9af2ecf8a4df"
-    url = "https://api.anaconda.org/download/fico-xpress/xpresslibs/9.9.1/linux-aarch64/xpresslibs-9.9.1-1782942423.tar.bz2"
+    url = "https://github.com/fico-xpress/releases/releases/download/v10.0.0/xp10.0.0_linux_aarch64.tar.gz"
+    sha256 = "8d5d7de8ae5a5d71bc5a9b148b83dbe116f9abd2015bf6bdfa1a615b8bef5495"
 [[Xpress]]
-git-tree-sha1 = "eec5bc63dd19f0f4991b67bf2f993d5956d85a50"
 arch = "x86_64"
 os = "linux"
+git-tree-sha1 = "43d73d749e58648954a600c2dd8fd8d5e4208038"
 
     [[Xpress.download]]
-    sha256 = "05368a9e38f87995b93330be0694f137761fcf5bc44fe3949d21e85559b629e5"
-    url = "https://api.anaconda.org/download/fico-xpress/xpresslibs/9.9.1/linux-64/xpresslibs-9.9.1-1782941600.tar.bz2"
+    url = "https://github.com/fico-xpress/releases/releases/download/v10.0.0/xp10.0.0_linux_x86_64.tar.gz"
+    sha256 = "8fcd1c99d1797a36e913069f8aec27ef4005db1666ad8ca11f82f303006b30b0"
 [[Xpress]]
-git-tree-sha1 = "4a887e3346a66cf311061ca1ffa9ace25fc2c0f3"
 arch = "aarch64"
 os = "macos"
+git-tree-sha1 = "8c64e4e2b1e54c0f10e961545e8a055ad4426032"
 
     [[Xpress.download]]
-    sha256 = "2735659bdd06f868229459bd4aff0cd0fa7dea1ba3f09d6fc4003e3a4c1583bf"
-    url = "https://api.anaconda.org/download/fico-xpress/xpresslibs/9.9.1/osx-arm64/xpresslibs-9.9.1-1782943702.tar.bz2"
-[[Xpress]]
-git-tree-sha1 = "ed73a23c1fcc5be855fa39e45fd0a219e8fb6c52"
-arch = "x86_64"
-os = "windows"
-
-    [[Xpress.download]]
-    sha256 = "fcf782ccbe25c71cbc0ff822835ffa5b66184b6318a6d32735097f81ee1781cd"
-    url = "https://api.anaconda.org/download/fico-xpress/xpresslibs/9.9.1/win-64/xpresslibs-9.9.1-1782952299.tar.bz2"
+    url = "https://github.com/fico-xpress/releases/releases/download/v10.0.0/xp10.0.0_macos_arm64.tar.gz"
+    sha256 = "6c8ced8727cbd4ce316ebd0d5d98d27d81f2e3e24a76ce686e4b076931b04664"

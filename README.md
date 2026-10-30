@@ -1,7 +1,18 @@
 # `Xpress_jll.jl`
 
 `Xpress_jll` is a JLL package manually built from the binaries at
+[https://github.com/fico-xpress/releases/releases](https://github.com/fico-xpress/releases/releases).
+
+Starting with Xpress 10.0, the binaries are downloaded from the FICO Xpress
+GitHub releases. Earlier versions (9.9.1 and below) used the binaries from
 [https://anaconda.org/fico-xpress/xpress/files](https://anaconda.org/fico-xpress/xpress/files).
+
+> [!NOTE]
+> FICO only publishes the Windows binaries as a `.zip` file, which Julia's
+> package manager cannot install as an artifact. On Windows, `Xpress_jll`
+> instead downloads the binaries (about 140 MB) the first time it is loaded
+> and stores them in `~/.julia/xpress_jll`. This will change if FICO
+> publishes a `.tar.gz`.
 
 ## Affiliation
 
